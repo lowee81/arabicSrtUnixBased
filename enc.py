@@ -11,6 +11,8 @@ os.remove(os.path.join(current_dr,'icnv.sh'))
 f = open('icnv.sh','w')
 
 rootDir ='/mount/MOVIES/Movies'
+
+subprocess.call(["ss",rootDir])
 for subdir, dirs, files in os.walk(rootDir):
     for file in files:
         if (file.endswith(".srt") or file.endswith(".sub")):
@@ -42,6 +44,5 @@ for subdir, dirs, files in os.walk(rootDir):
 f.close()
 
 subprocess.call(["chmod","777" , "icnv.sh"])
-subprocess.call(["ss",rootDir])
 
 subprocess.call(["ksh","icnv.sh"])
